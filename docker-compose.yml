@@ -3,9 +3,10 @@ services:
     build: .
     volumes:
       - ./cache:/app/cache
-      - ./db.sqlite:/app/db.sqlite
-    ports:
-      - "8000:8000"
+      - ./data:/app/data
+    expose:
+      - "8000"
+    user: "www-data"
 
   nginx:
     image: nginx:alpine

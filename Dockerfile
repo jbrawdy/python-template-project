@@ -14,11 +14,17 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Create necessary directories
-RUN mkdir -p uploads cache static
+# Create necessary directories and set permissions
+RUN mkdir -p cache static data \
+    && chown -R www-data:www-data /app \
+    && chmod 755 /app \
+    && chmod 777 data
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
+
+# Switch to non-root user
+USER www-data
 
 # Expose port
 EXPOSE 8000

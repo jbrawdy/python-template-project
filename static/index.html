@@ -3,25 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Python WSGI Template</title>
+    <title>Todo List App</title>
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Python WSGI Template</h1>
-        <p>A minimal, flexible web application template</p>
+        <h1>Todo List</h1>
+        <p>A minimal todo list application</p>
       </header>
 
       <main>
-        <section class="info-section">
-          <h2>Features</h2>
-          <ul>
-            <li>Raw WSGI Implementation</li>
-            <li>SQLite Database</li>
-            <li>Static File Serving</li>
-            <li>JSON/TXT Caching</li>
-          </ul>
+        <section class="todo-section">
+          <div class="todo-input">
+            <input
+              type="text"
+              id="newTodo"
+              placeholder="Add a new task..."
+              autofocus
+            />
+            <button id="addTodo">Add task</button>
+          </div>
+
+          <div class="todo-list">
+            <h2>Tasks</h2>
+            <ul id="todoList">
+              <!-- Todo items will be inserted here -->
+            </ul>
+          </div>
         </section>
       </main>
     </div>
